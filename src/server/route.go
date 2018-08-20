@@ -1,8 +1,6 @@
 package server
 
 import (
-	"net/http"
-
 	"github.com/emicklei/go-restful"
 	"github.com/gorilla/mux"
 	handler "github.com/linkernetworks/vortex/src/net/http"
@@ -16,7 +14,6 @@ func (a *App) AppRoute() *mux.Router {
 	container := restful.NewContainer()
 
 	container.Filter(globalLogging)
-	http.Handle("/api/sockjs/", CreateAttachHandler("/api/sockjs"))
 
 	container.Add(newVersionService(a.ServiceProvider))
 	container.Add(newRegistryService(a.ServiceProvider))
@@ -34,7 +31,9 @@ func (a *App) AppRoute() *mux.Router {
 	container.Add(newOVSService(a.ServiceProvider))
 	container.Add(newShellService(a.ServiceProvider))
 
+	router.PathPrefix("/api/sockjs").Handler(CreateAttachHandler("/api/sockjs"))
 	router.PathPrefix("/v1/").Handler(container)
+
 	return router
 }
 
