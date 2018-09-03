@@ -2,6 +2,7 @@ package server
 
 import (
 	"fmt"
+	"io/ioutil"
 	"math"
 	"net/http"
 	"strconv"
@@ -9,10 +10,12 @@ import (
 	"github.com/linkernetworks/utils/timeutils"
 	"github.com/linkernetworks/vortex/src/deployment"
 	"github.com/linkernetworks/vortex/src/entity"
+	"github.com/linkernetworks/vortex/src/kubernetes"
 	response "github.com/linkernetworks/vortex/src/net/http"
 	"github.com/linkernetworks/vortex/src/net/http/query"
 	"github.com/linkernetworks/vortex/src/server/backend"
 	"github.com/linkernetworks/vortex/src/web"
+	"k8s.io/api/extensions/v1beta1"
 	"k8s.io/apimachinery/pkg/api/errors"
 
 	mgo "gopkg.in/mgo.v2"
@@ -195,4 +198,71 @@ func getDeploymentHandler(ctx *web.Context) {
 	}
 	deployment.CreatedBy, _ = backend.FindUserByID(session, deployment.OwnerID)
 	resp.WriteEntity(deployment)
+}
+
+func uploadDeploymentYAMLHandler(ctx *web.Context) {
+	sp, req, resp := ctx.ServiceProvider, ctx.Request, ctx.Response
+	userID, ok := req.Attribute("UserID").(string)
+	if !ok {
+		response.Unauthorized(req.Request, resp.ResponseWriter, fmt.Errorf("Unauthorized: User ID is empty"))
+		return
+	}
+
+	content, err := ioutil.ReadAll(req.Request.Body)
+	if err != nil {
+		response.InternalServerError(req.Request, resp.ResponseWriter, fmt.Errorf("Failed to read data: %s", err.Error()))
+		return
+	}
+
+	if len(content) == 0 {
+		response.BadRequest(req.Request, resp.ResponseWriter, fmt.Errorf("Empty content"))
+		return
+	}
+
+	obj, err := kubernetes.ParseK8SYAML(content)
+	if err != nil {
+		response.BadRequest(req.Request, resp.ResponseWriter, err)
+		return
+	}
+
+	deploymentObj := obj.(*v1beta1.Deployment)
+
+	p := entity.Deployment{
+		ID:        bson.NewObjectId(),
+		OwnerID:   bson.ObjectIdHex(userID),
+		Name:      deploymentObj.ObjectMeta.Name,
+		Namespace: deploymentObj.ObjectMeta.Namespace,
+	}
+
+	session := sp.Mongo.NewSession()
+	session.C(entity.DeploymentCollectionName).EnsureIndex(mgo.Index{
+		Key:    []string{"name"},
+		Unique: true,
+	})
+	defer session.Close()
+
+	p.CreatedAt = timeutils.Now()
+	if err := deployment.CreateDeployment(sp, &p); err != nil {
+		if errors.IsAlreadyExists(err) {
+			response.Conflict(req.Request, resp.ResponseWriter, fmt.Errorf("Deployment Name: %s already existed", p.Name))
+		} else if errors.IsConflict(err) {
+			response.Conflict(req.Request, resp.ResponseWriter, fmt.Errorf("Create setting has conflict: %v", err))
+		} else if errors.IsInvalid(err) {
+			response.BadRequest(req.Request, resp.ResponseWriter, fmt.Errorf("Create setting is invalid: %v", err))
+		} else {
+			response.InternalServerError(req.Request, resp.ResponseWriter, err)
+		}
+		return
+	}
+	if err := session.Insert(entity.DeploymentCollectionName, &p); err != nil {
+		if mgo.IsDup(err) {
+			response.Conflict(req.Request, resp.ResponseWriter, fmt.Errorf("Deployment Name: %s already existed", p.Name))
+		} else {
+			response.InternalServerError(req.Request, resp.ResponseWriter, err)
+		}
+		return
+	}
+	// find owner in user entity
+	p.CreatedBy, _ = backend.FindUserByID(session, p.OwnerID)
+	resp.WriteHeaderAndEntity(http.StatusCreated, p)
 }
