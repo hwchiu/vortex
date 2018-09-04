@@ -20,10 +20,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 
 	restful "github.com/emicklei/go-restful"
+	"github.com/linkernetworks/logger"
 	"gopkg.in/igm/sockjs-go.v2/sockjs"
 	"k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes"
@@ -150,22 +150,22 @@ func handleTerminalSession(session sockjs.Session) {
 	)
 
 	if buf, err = session.Recv(); err != nil {
-		log.Printf("handleTerminalSession: can't Recv: %v", err)
+		logger.Infof("handleTerminalSession: can't Recv: %v", err)
 		return
 	}
 
 	if err = json.Unmarshal([]byte(buf), &msg); err != nil {
-		log.Printf("handleTerminalSession: can't UnMarshal (%v): %s", err, buf)
+		logger.Infof("handleTerminalSession: can't UnMarshal (%v): %s", err, buf)
 		return
 	}
 
 	if msg.Op != "bind" {
-		log.Printf("handleTerminalSession: expected 'bind' message, got: %s", buf)
+		logger.Infof("handleTerminalSession: expected 'bind' message, got: %s", buf)
 		return
 	}
 
 	if terminalSession, ok = terminalSessions[msg.SessionID]; !ok {
-		log.Printf("handleTerminalSession: can't find session '%s'", msg.SessionID)
+		logger.Infof("handleTerminalSession: can't find session '%s'", msg.SessionID)
 		return
 	}
 
