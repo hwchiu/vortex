@@ -3,8 +3,8 @@ package server
 import (
 	"github.com/emicklei/go-restful"
 	"github.com/gorilla/mux"
-	handler "github.com/linkernetworks/vortex/src/net/http"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	handler "github.com/hwchiu/vortex/src/net/http"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 )
 
 // AppRoute will add router

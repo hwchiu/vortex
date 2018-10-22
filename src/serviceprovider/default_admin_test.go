@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/linkernetworks/mongo"
-	"github.com/linkernetworks/vortex/src/config"
-	"github.com/linkernetworks/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/config"
+	"github.com/hwchiu/vortex/src/entity"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 )

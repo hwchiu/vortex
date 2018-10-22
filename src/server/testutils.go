@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	restful "github.com/emicklei/go-restful"
-	"github.com/linkernetworks/vortex/src/entity"
-	response "github.com/linkernetworks/vortex/src/net/http"
+	"github.com/hwchiu/vortex/src/entity"
+	response "github.com/hwchiu/vortex/src/net/http"
 )
 
 func loginGetToken(wc *restful.Container) (string, error) {

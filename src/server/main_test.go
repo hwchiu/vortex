@@ -10,9 +10,9 @@ import (
 	"testing"
 
 	restful "github.com/emicklei/go-restful"
-	"github.com/linkernetworks/vortex/src/config"
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/config"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 	"gopkg.in/mgo.v2/bson"
 )
 

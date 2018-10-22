@@ -11,8 +11,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/kubernetes"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/kubernetes"
 	"github.com/moby/moby/pkg/namesgenerator"
 	"github.com/stretchr/testify/suite"
 

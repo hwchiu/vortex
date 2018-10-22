@@ -3,8 +3,8 @@ package storageprovider
 import (
 	"fmt"
 
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 	"gopkg.in/mgo.v2/bson"
 
 	appsv1 "k8s.io/api/apps/v1"

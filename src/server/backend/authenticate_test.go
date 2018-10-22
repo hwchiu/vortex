@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/linkernetworks/mongo"
-	"github.com/linkernetworks/vortex/src/config"
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
-	"github.com/linkernetworks/vortex/src/utils"
+	"github.com/hwchiu/vortex/src/config"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/utils"
 	"github.com/stretchr/testify/suite"
 	"gopkg.in/mgo.v2/bson"
 )

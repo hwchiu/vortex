@@ -5,9 +5,9 @@ import (
 	"strconv"
 
 	"github.com/linkernetworks/mongo"
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
-	"github.com/linkernetworks/vortex/src/utils"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/utils"
 
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

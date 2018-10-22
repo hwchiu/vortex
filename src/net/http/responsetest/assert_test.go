@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	response "github.com/linkernetworks/vortex/src/net/http"
+	response "github.com/hwchiu/vortex/src/net/http"
 
 	"github.com/stretchr/testify/assert"
 )

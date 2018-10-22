@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"net/http"
 
-	"github.com/linkernetworks/vortex/src/web"
+	"github.com/hwchiu/vortex/src/web"
 )
 
 func TestCompositeServiceHandler(t *testing.T) {

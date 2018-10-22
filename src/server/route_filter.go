@@ -8,9 +8,9 @@ import (
 	"github.com/dgrijalva/jwt-go/request"
 	"github.com/emicklei/go-restful"
 	"github.com/linkernetworks/logger"
-	"github.com/linkernetworks/vortex/src/entity"
-	response "github.com/linkernetworks/vortex/src/net/http"
-	"github.com/linkernetworks/vortex/src/server/backend"
+	"github.com/hwchiu/vortex/src/entity"
+	response "github.com/hwchiu/vortex/src/net/http"
+	"github.com/hwchiu/vortex/src/server/backend"
 )
 
 func globalLogging(req *restful.Request, resp *restful.Response, chain *restful.FilterChain) {

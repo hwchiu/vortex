@@ -1,9 +1,9 @@
 package server
 
 import (
-	response "github.com/linkernetworks/vortex/src/net/http"
-	"github.com/linkernetworks/vortex/src/version"
-	"github.com/linkernetworks/vortex/src/web"
+	response "github.com/hwchiu/vortex/src/net/http"
+	"github.com/hwchiu/vortex/src/version"
+	"github.com/hwchiu/vortex/src/web"
 )
 
 func versionHandler(ctx *web.Context) {

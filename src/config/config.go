@@ -7,8 +7,8 @@ import (
 
 	"github.com/linkernetworks/logger"
 	"github.com/linkernetworks/mongo"
-	"github.com/linkernetworks/vortex/src/prometheusprovider"
-	"github.com/linkernetworks/vortex/src/registry"
+	"github.com/hwchiu/vortex/src/prometheusprovider"
+	"github.com/hwchiu/vortex/src/registry"
 )
 
 // Config is the structure for vortex

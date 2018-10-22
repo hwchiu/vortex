@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 	pv1 "github.com/prometheus/client_golang/api/prometheus/v1"
 	"github.com/prometheus/common/model"
 	"golang.org/x/net/context"

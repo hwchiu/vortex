@@ -6,7 +6,7 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/linkernetworks/logger"
-	"github.com/linkernetworks/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/entity"
 )
 
 // GenerateToken is for generating token

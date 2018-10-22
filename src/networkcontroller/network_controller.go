@@ -4,7 +4,7 @@ import (
 	"time"
 
 	pb "github.com/linkernetworks/network-controller/messages"
-	"github.com/linkernetworks/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/entity"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )

@@ -3,10 +3,10 @@ package server
 import (
 	"fmt"
 
-	response "github.com/linkernetworks/vortex/src/net/http"
-	"github.com/linkernetworks/vortex/src/net/http/query"
-	"github.com/linkernetworks/vortex/src/ovscontroller"
-	"github.com/linkernetworks/vortex/src/web"
+	response "github.com/hwchiu/vortex/src/net/http"
+	"github.com/hwchiu/vortex/src/net/http/query"
+	"github.com/hwchiu/vortex/src/ovscontroller"
+	"github.com/hwchiu/vortex/src/web"
 )
 
 func getOVSPortInfoHandler(ctx *web.Context) {

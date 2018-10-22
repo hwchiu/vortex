@@ -2,8 +2,8 @@ package kubeutils
 
 import (
 	"fmt"
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 
 	"gopkg.in/mgo.v2/bson"
 )

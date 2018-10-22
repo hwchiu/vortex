@@ -6,11 +6,11 @@ import (
 	"path/filepath"
 
 	"github.com/linkernetworks/logger"
-	"github.com/linkernetworks/vortex/src/config"
-	"github.com/linkernetworks/vortex/src/prometheusprovider"
+	"github.com/hwchiu/vortex/src/config"
+	"github.com/hwchiu/vortex/src/prometheusprovider"
 
 	"github.com/linkernetworks/mongo"
-	kubeCtl "github.com/linkernetworks/vortex/src/kubernetes"
+	kubeCtl "github.com/hwchiu/vortex/src/kubernetes"
 
 	"gopkg.in/go-playground/validator.v9"
 	"k8s.io/client-go/kubernetes"

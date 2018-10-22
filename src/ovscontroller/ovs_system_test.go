@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/linkernetworks/vortex/src/config"
-	_ "github.com/linkernetworks/vortex/src/entity"
-	kc "github.com/linkernetworks/vortex/src/kubernetes"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/config"
+	_ "github.com/hwchiu/vortex/src/entity"
+	kc "github.com/hwchiu/vortex/src/kubernetes"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 
 	"github.com/moby/moby/pkg/namesgenerator"
 	"github.com/stretchr/testify/suite"

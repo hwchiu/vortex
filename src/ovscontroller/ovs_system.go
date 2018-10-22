@@ -4,9 +4,9 @@ import (
 	"net"
 
 	"github.com/linkernetworks/network-controller/utils"
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/networkcontroller"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/networkcontroller"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 	"gopkg.in/mgo.v2/bson"
 )
 

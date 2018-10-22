@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	restful "github.com/emicklei/go-restful"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 )
 
 // Context is the struct to combine the restful message with our own serviceProvider

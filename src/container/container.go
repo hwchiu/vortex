@@ -18,7 +18,7 @@ import (
 	"io/ioutil"
 
 	restful "github.com/emicklei/go-restful"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 	"k8s.io/api/core/v1"
 	"k8s.io/client-go/kubernetes/scheme"
 )

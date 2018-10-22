@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 	"github.com/stretchr/testify/suite"
 )
 

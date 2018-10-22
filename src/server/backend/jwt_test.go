@@ -3,7 +3,7 @@ package backend
 import (
 	"testing"
 
-	"github.com/linkernetworks/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/entity"
 	"github.com/stretchr/testify/assert"
 )
 

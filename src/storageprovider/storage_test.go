@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/linkernetworks/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/entity"
 )
 
 func TestGetStorageProvider(t *testing.T) {

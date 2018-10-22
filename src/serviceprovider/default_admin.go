@@ -3,8 +3,8 @@ package serviceprovider
 import (
 	"github.com/linkernetworks/mongo"
 	"github.com/linkernetworks/utils/timeutils"
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/utils"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/utils"
 	"gopkg.in/mgo.v2/bson"
 )
 

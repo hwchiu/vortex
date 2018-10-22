@@ -5,9 +5,9 @@ import (
 	"strings"
 
 	"github.com/linkernetworks/mongo"
-	"github.com/linkernetworks/vortex/src/entity"
-	"github.com/linkernetworks/vortex/src/kubeutils"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/kubeutils"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 	"gopkg.in/mgo.v2/bson"
 
 	"k8s.io/api/core/v1"

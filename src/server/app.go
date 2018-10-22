@@ -6,8 +6,8 @@ import (
 	"net/http"
 
 	"github.com/linkernetworks/logger"
-	"github.com/linkernetworks/vortex/src/config"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/config"
+	"github.com/hwchiu/vortex/src/serviceprovider"
 )
 
 // App is the structure to set config & service provider of APP

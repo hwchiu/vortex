@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	"github.com/linkernetworks/vortex/src/server"
+	"github.com/hwchiu/vortex/src/server"
 )
 
 func main() {

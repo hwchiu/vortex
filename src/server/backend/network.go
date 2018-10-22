@@ -2,7 +2,7 @@ package backend
 
 import (
 	"github.com/linkernetworks/mongo"
-	"github.com/linkernetworks/vortex/src/entity"
+	"github.com/hwchiu/vortex/src/entity"
 	"gopkg.in/mgo.v2/bson"
 )
 

@@ -5,8 +5,8 @@ import (
 
 	"github.com/emicklei/go-restful"
 	"github.com/linkernetworks/logger"
-	"github.com/linkernetworks/vortex/src/serviceprovider"
-	"github.com/linkernetworks/vortex/src/web"
+	"github.com/hwchiu/vortex/src/serviceprovider"
+	"github.com/hwchiu/vortex/src/web"
 )
 
 // NativeContextHandler is the interface for native http handler(http.Request and http.ResponseWriter)
