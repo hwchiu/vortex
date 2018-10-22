@@ -96,6 +96,7 @@ func (suite *PrometheusTestSuite) TestGetPodMetrics() {
 	namespace := "vortex"
 	pods, err := suite.sp.KubeCtl.GetPods(namespace)
 	suite.NoError(err)
+	fmt.Println("hwchiu - get Pod", podName)
 	podName := pods[0].GetName()
 
 	httpRequest, err := http.NewRequest("GET", "http://localhost:7890/v1/monitoring/pods/"+podName, nil)
