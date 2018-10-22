@@ -152,7 +152,7 @@ func ListNodeNICs(sp *serviceprovider.Container, id string) (entity.NodeNICsMetr
 
 // GetPod will get pod
 func GetPod(sp *serviceprovider.Container, id string, rs RangeSetting) (entity.PodMetrics, error) {
-	fmt.Print("hwchiu Try to get Pod")
+	fmt.Println("hwchiu Try to get Pod")
 	pod := entity.PodMetrics{}
 	pod.Labels = map[string]string{}
 	pod.NICs = map[string]entity.NICShortMetrics{}
@@ -245,7 +245,7 @@ podStatusCheckingLoop:
 		}
 	}
 
-	fmt.Print("hwchiu Try to get interface")
+	fmt.Println("hwchiu Try to get interface")
 	// network interface
 	expression.Metrics = []string{"container_network_receive_bytes_total"}
 	expression.QueryLabels = map[string]string{"container_label_io_kubernetes_pod_name": id}
@@ -257,12 +257,13 @@ podStatusCheckingLoop:
 		return pod, err
 	}
 
-	fmt.Print("hwchiu Try to get interface", results)
+	fmt.Println("hwchiu Try to get interface, size of result", len(results))
 	for _, result := range results {
 		nic := entity.NICShortMetrics{}
 		nic.NICNetworkTraffic = entity.NICNetworkTrafficMetrics{}
 		pod.NICs[string(result.Metric["interface"])] = nic
-		fmt.Print("hwchiu Try to get interface ", nic, result.Metric["interface"])
+		fmt.Println("hwchiu Try to get interface nic:", nic)
+		fmt.Println("hwchiu try to get interface name", result.Metric["interface"])
 	}
 
 	// network traffic receive bytes
