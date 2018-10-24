@@ -346,6 +346,7 @@ podStatusCheckingLoop:
 		pod.NICs[string(result.Metric["interface"])] = nic
 	}
 
+	fmt.Println("hwchiu get pod", pod)
 	return pod, nil
 }
 
