@@ -265,6 +265,7 @@ podStatusCheckingLoop:
 		fmt.Println("hwchiu Try to get interface nic:", nic)
 		fmt.Println("hwchiu try to get interface name", result.Metric["interface"])
 	}
+	fmt.Println("Hwchiu", pod.NICs)
 
 	// network traffic receive bytes
 	expression.Metrics = []string{"container_network_receive_bytes_total"}
